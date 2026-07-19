@@ -2,6 +2,12 @@
 
 Spring Boot backend for receiving Android captures and writing Markdown files into the configured Obsidian Inbox.
 
+## Prerequisites
+
+- JDK 25
+- A network connection on the first run so the Maven wrapper can download Maven and project dependencies
+- An Obsidian vault Inbox path, or permission to let the default local `vault/Inbox` folder be created
+
 ## Run
 
 ```powershell
@@ -79,3 +85,7 @@ synced_at: "..."
 ```
 
 The backend still keeps an internal sync index at `pkms.sync.index-path` for duplicate protection.
+
+## Git Notes
+
+The Maven wrapper uses `distributionType=only-script`, so the wrapper scripts and `.mvn/wrapper/maven-wrapper.properties` are tracked, while the Maven distribution is downloaded on demand. Runtime folders such as `target/`, `data/`, and `vault/` are intentionally ignored.

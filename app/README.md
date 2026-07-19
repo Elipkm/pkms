@@ -2,6 +2,21 @@
 
 Native Android capture app for local-first notes, links, images, camera photos, and optional categories.
 
+![PKMS Android app mockup](../docs/assets/android-app-mockup.png)
+
+## Open In Android Studio
+
+Open this `app/` folder as the Android Studio project. The repository includes the Gradle wrapper, version catalog, module build files, Android resources, and source code needed to sync and build the app.
+
+The first sync or command-line build downloads Gradle, Android Gradle Plugin, Kotlin, AndroidX, Room, WorkManager, Compose, and OkHttp dependencies.
+
+## Prerequisites
+
+- Android Studio with the Android SDK installed
+- Android SDK platform 36
+- A network connection for the first dependency download
+- The backend running on the emulator host or on the same network as the phone
+
 ## Build APK
 
 For the Android emulator:
@@ -23,6 +38,8 @@ APK output:
 ```text
 app\build\outputs\apk\debug\app-debug.apk
 ```
+
+When this README is viewed from the repository root, the same APK path is `app\app\build\outputs\apk\debug\app-debug.apk`.
 
 ## Full Verification
 
