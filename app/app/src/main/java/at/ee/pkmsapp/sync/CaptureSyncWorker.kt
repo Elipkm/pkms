@@ -3,9 +3,8 @@ package at.ee.pkmsapp.sync
 import android.content.Context
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
+import at.ee.pkmsapp.AppGraph
 import at.ee.pkmsapp.BuildConfig
-import at.ee.pkmsapp.data.AppDatabase
-import at.ee.pkmsapp.data.CaptureRepository
 import kotlinx.coroutines.CancellationException
 
 class CaptureSyncWorker(
@@ -14,9 +13,7 @@ class CaptureSyncWorker(
 ) : CoroutineWorker(appContext, params) {
 
     override suspend fun doWork(): Result {
-        val repository = CaptureRepository(
-            AppDatabase.getInstance(applicationContext).captureDao()
-        )
+        val repository = AppGraph.repository(applicationContext)
         val client = NoteCaptureClient(BuildConfig.PKMS_BACKEND_BASE_URL)
         val pendingCaptures = repository.pending(limit = 20)
 
@@ -26,8 +23,12 @@ class CaptureSyncWorker(
 
         return try {
             pendingCaptures.forEach { capture ->
-                client.upload(capture)
-                repository.markSynced(capture.id)
+                try {
+                    client.upload(capture)
+                    repository.markSynced(capture.id)
+                } catch (exception: MissingLocalAttachmentException) {
+                    repository.markLocalProblem(capture.id)
+                }
             }
             Result.success()
         } catch (exception: CancellationException) {

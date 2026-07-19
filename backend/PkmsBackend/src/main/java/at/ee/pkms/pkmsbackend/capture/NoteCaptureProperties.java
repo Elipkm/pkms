@@ -20,6 +20,7 @@ public class NoteCaptureProperties {
 
     public static class Vault {
         private Path inboxPath = Path.of("./vault/Inbox");
+        private String attachmentDirectory = "_attachments";
 
         public Path getInboxPath() {
             return inboxPath;
@@ -27,6 +28,14 @@ public class NoteCaptureProperties {
 
         public void setInboxPath(Path inboxPath) {
             this.inboxPath = inboxPath;
+        }
+
+        public String getAttachmentDirectory() {
+            return attachmentDirectory;
+        }
+
+        public void setAttachmentDirectory(String attachmentDirectory) {
+            this.attachmentDirectory = attachmentDirectory;
         }
     }
 

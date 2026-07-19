@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
+  <title id="title">PKMS app icon concept</title>
+  <desc id="desc">Rounded app icon with a note card, capture lens, and knowledge spark.</desc>
+  <defs>
+    <linearGradient id="bg" x1="128" y1="120" x2="896" y2="904" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#143D59"/>
+      <stop offset="0.52" stop-color="#1E6F72"/>
+      <stop offset="1" stop-color="#F4B942"/>
+    </linearGradient>
+    <linearGradient id="card" x1="285" y1="214" x2="736" y2="774" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#DDEBF0"/>
+    </linearGradient>
+    <filter id="shadow" x="150" y="130" width="760" height="780" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="32" stdDeviation="34" flood-color="#092331" flood-opacity="0.32"/>
+    </filter>
+  </defs>
+  <rect width="1024" height="1024" rx="224" fill="url(#bg)"/>
+  <path d="M198 736C330 686 368 583 455 601c93 19 100 158 217 155 78-2 127-65 154-122v238H198z" fill="#092331" opacity="0.18"/>
+  <g filter="url(#shadow)">
+    <path d="M308 192h320l142 142v452c0 42-34 76-76 76H308c-42 0-76-34-76-76V268c0-42 34-76 76-76z" fill="url(#card)"/>
+    <path d="M628 192v104c0 21 17 38 38 38h104z" fill="#B7D7DE"/>
+  </g>
+  <path d="M346 414h244" stroke="#143D59" stroke-width="38" stroke-linecap="round"/>
+  <path d="M346 520h332" stroke="#1E6F72" stroke-width="38" stroke-linecap="round"/>
+  <path d="M346 626h188" stroke="#F4B942" stroke-width="38" stroke-linecap="round"/>
+  <circle cx="674" cy="642" r="116" fill="#143D59"/>
+  <circle cx="674" cy="642" r="64" fill="#F4B942"/>
+  <circle cx="674" cy="642" r="30" fill="#FFFFFF"/>
+  <path d="M770 302l22 62 60 20-60 20-22 62-22-62-60-20 60-20z" fill="#FFFFFF"/>
+  <path d="M260 172l15 43 42 14-42 14-15 43-15-43-42-14 42-14z" fill="#F4B942"/>
+</svg>

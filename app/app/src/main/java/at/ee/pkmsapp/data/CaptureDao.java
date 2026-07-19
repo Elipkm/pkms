@@ -24,4 +24,13 @@ public interface CaptureDao {
 
     @Query("UPDATE captures SET status = :status, syncedAt = :syncedAt WHERE id = :id")
     void updateStatus(String id, String status, String syncedAt);
+
+    @Query("UPDATE captures SET status = :status WHERE id = :id")
+    void updateStatusOnly(String id, String status);
+
+    @Query("SELECT * FROM captures WHERE id = :id LIMIT 1")
+    CaptureEntity findById(String id);
+
+    @Query("DELETE FROM captures WHERE id = :id")
+    void deleteById(String id);
 }

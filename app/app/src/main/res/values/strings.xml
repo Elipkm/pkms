@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">PkmsApp</string>
+    <string-array name="capture_categories">
+        <item>Work</item>
+        <item>Business</item>
+        <item>Leben</item>
+        <item>TODO</item>
+        <item>Social</item>
+    </string-array>
 </resources>

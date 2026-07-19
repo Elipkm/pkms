@@ -15,6 +15,11 @@ public class CaptureEntity {
     public String source;
     public String status;
     public String syncedAt;
+    public String links;
+    public String categories;
+    public String attachmentPaths;
+    public String attachmentNames;
+    public String attachmentMimeTypes;
 
     public CaptureEntity(
             @NonNull String id,
@@ -22,7 +27,12 @@ public class CaptureEntity {
             String createdAt,
             String source,
             String status,
-            String syncedAt
+            String syncedAt,
+            String links,
+            String categories,
+            String attachmentPaths,
+            String attachmentNames,
+            String attachmentMimeTypes
     ) {
         this.id = id;
         this.content = content;
@@ -30,5 +40,10 @@ public class CaptureEntity {
         this.source = source;
         this.status = status;
         this.syncedAt = syncedAt;
+        this.links = links;
+        this.categories = categories;
+        this.attachmentPaths = attachmentPaths;
+        this.attachmentNames = attachmentNames;
+        this.attachmentMimeTypes = attachmentMimeTypes;
     }
 }
