@@ -19,6 +19,14 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        val backendBaseUrl = providers.gradleProperty("pkmsBackendBaseUrl")
+            .orElse("http://10.0.2.2:8080")
+            .get()
+        buildConfigField(
+            "String",
+            "PKMS_BACKEND_BASE_URL",
+            "\"$backendBaseUrl\""
+        )
     }
 
     buildTypes {
@@ -33,8 +41,10 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
     }
     buildFeatures {
+        buildConfig = true
         compose = true
     }
+
 }
 
 dependencies {
@@ -44,8 +54,14 @@ dependencies {
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
+    implementation(libs.androidx.compose.runtime.livedata)
     implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.lifecycle.livedata.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.work.runtime.ktx)
+    implementation(libs.okhttp)
+    annotationProcessor(libs.androidx.room.compiler)
     testImplementation(libs.junit)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
